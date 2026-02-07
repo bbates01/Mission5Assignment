@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Pricing";
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white border-0">
+                <h2 class="h4 fw-bold text-dark mb-0">@ViewData["Title"]</h2>
+            </div>
+            <div class="card-body bg-white">
+                <p class="text-dark">You can pay me to teach you about cars, or teach you how to work on them.</p>
+                <p class="text-dark">Use this page to estimate the total cost based on hours and a standard hourly rate.</p>
+                <form>
+                    <div class="mb-3">
+                        <label for="numHours" class="form-label">Hours anticipated</label>
+                        <input type="number" class="form-control" id="numHours" name="numHours" min="0" step="1" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="hourlyRate" class="form-label">Hourly Rate</label>
+                        <!-- keep the stored value numeric (no $) so JS can parse it easily -->
+                        <input type="number" class="form-control" id="hourlyRate" name="hourlyRate" value="100" min="0" step="0.01" readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label for="totalCost" class="form-label">Total Cost</label>
+                        <input type="text" class="form-control-plaintext fw-bold" id="totalCost" name="totalCost" readonly />
+                    </div>
+                    <div class="d-grid">
+                        <button type="button" id="calculateTotal" class="btn btn-dark btn-lg">Calculate Total</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- pricing.js will be rendered here after the layout includes jQuery -->
+    <script src="~/js/pricing.js"></script>
+}
